@@ -15,7 +15,7 @@ class WC_Rache_Aqui_Gateway extends WC_Payment_Gateway {
 		global $woocommerce;
 
 		$this->id             = 'rache-aqui';
-		$this->icon           = apply_filters( 'woocommerce_rache_aqui_icon', plugins_url( 'images/credit-card.png', plugin_dir_path( __FILE__ ) ) );
+		$this->icon           = apply_filters( 'woocommerce_rache_aqui_icon', plugins_url( 'assets/images/rache-aqui.png', plugin_dir_path( __FILE__ ) ) );
 		$this->has_fields     = false;
 		$this->method_title   = __( 'Rache Aqui!', 'woocommerce-rache-aqui' );
 
