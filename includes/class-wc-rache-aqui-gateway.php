@@ -84,9 +84,9 @@ class WC_Rache_Aqui_Gateway extends WC_Payment_Gateway {
 	 */
 	public function is_available() {
 		// Test if is valid for use.
-		$available = ( 'yes' == $this->get_option( 'enabled' ) &&
-					! empty( $this->store_id ) &&
-					$this->using_supported_currency();
+		$available = ( 'yes' == $this->get_option( 'enabled' ) )
+					&& ! empty( $this->store_id )
+					&& $this->using_supported_currency();
 
 		return $available;
 	}
@@ -141,11 +141,16 @@ class WC_Rache_Aqui_Gateway extends WC_Payment_Gateway {
 					'8'  => '8',
 					'9'  => '9',
 					'10' => '10',
+					'11' => '11',
+					'12' => '12',
+					'13' => '13',
+					'14' => '14',
+					'15' => '15',
 				)
 			),
 			'installments' => array(
 				'title'       => __( 'Max Installments', 'woocommerce-rache-aqui' ),
-				'type'        => 'text',
+				'type'        => 'select',
 				'description' => __( 'Enter the maximum number of credit card installments. Must be less than or equal to the number registered in the Register of Retail, the opposite case is considered the number of the register.', 'woocommerce-rache-aqui' ),
 				'desc_tip'    => true,
 				'default'     => '',
