@@ -52,6 +52,43 @@ class WC_Rache_Aqui_Gateway extends WC_Payment_Gateway {
 				$this->log = $woocommerce->logger();
 			}
 		}
+
+		if ( is_admin() ) {
+			// Checks if store_id is not empty.
+			if ( empty( $this->store_id ) ) {
+				add_action( 'admin_notices', array( $this, 'store_id_missing_message' ) );
+			}
+
+			// Checks that the currency is supported.
+			if ( ! $this->using_supported_currency() ) {
+				add_action( 'admin_notices', array( $this, 'currency_not_supported_message' ) );
+			}
+		}
+	}
+
+	/**
+	 * Returns a bool that indicates if currency is amongst the supported ones.
+	 *
+	 * @return bool
+	 */
+	protected function using_supported_currency() {
+		return 'BRL' == get_woocommerce_currency();
+	}
+
+	/**
+	 * Returns a value indicating the the Gateway is available or not. It's called
+	 * automatically by WooCommerce before allowing customers to use the gateway
+	 * for payment.
+	 *
+	 * @return bool
+	 */
+	public function is_available() {
+		// Test if is valid for use.
+		$available = ( 'yes' == $this->get_option( 'enabled' ) &&
+					! empty( $this->store_id ) &&
+					$this->using_supported_currency();
+
+		return $available;
 	}
 
 	/**
@@ -161,5 +198,36 @@ class WC_Rache_Aqui_Gateway extends WC_Payment_Gateway {
 				'description' => sprintf( __( 'Log Rache Aqui! events, such as API requests, inside %s', 'woocommerce-rache-aqui' ), '<code>woocommerce/logs/' . $this->id . '-' . sanitize_file_name( wp_hash( $this->id ) ) . '.txt</code>' ),
 			)
 		);
+	}
+
+	/**
+	 * Gets the admin url.
+	 *
+	 * @return string
+	 */
+	protected function admin_url() {
+		if ( version_compare( WOOCOMMERCE_VERSION, '2.1', '>=' ) ) {
+			return admin_url( 'admin.php?page=wc-settings&tab=checkout&section=wc_rache_aqui_gateway' );
+		}
+
+		return admin_url( 'admin.php?page=woocommerce_settings&tab=payment_gateways&section=WC_Rache_Aqui_Gateway' );
+	}
+
+	/**
+	 * Adds error message when not configured the store_id.
+	 *
+	 * @return string Error Mensage.
+	 */
+	public function store_id_missing_message() {
+		echo '<div class="error"><p><strong>' . __( 'Rache Aqui! Disabled', 'woocommerce-rache-aqui' ) . '</strong>: ' . sprintf( __( 'You should inform your Store ID. %s', 'woocommerce-rache-aqui' ), '<a href="' . $this->admin_url() . '">' . __( 'Click here to configure!', 'woocommerce-rache-aqui' ) . '</a>' ) . '</p></div>';
+	}
+
+	/**
+	 * Adds error message when an unsupported currency is used.
+	 *
+	 * @return string
+	 */
+	public function currency_not_supported_message() {
+		echo '<div class="error"><p><strong>' . __( 'Rache Aqui! Disabled', 'woocommerce-rache-aqui' ) . '</strong>: ' . sprintf( __( 'Currency <code>%s</code> is not supported. The Rache Aqui! works only with <code>BRL</code>.', 'woocommerce-rache-aqui' ), get_woocommerce_currency() ) . '</p></div>';
 	}
 }
