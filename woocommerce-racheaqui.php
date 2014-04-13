@@ -7,7 +7,7 @@
  * Author URI: http://claudiosmweb.com/
  * Version: 1.0.0
  * License: GPLv2 or later
- * Text Domain: woocommerce-rache-aqui
+ * Text Domain: woocommerce-racheaqui
  * Domain Path: /languages/
  */
 
@@ -15,12 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit; // Exit if accessed directly.
 }
 
-if ( ! class_exists( 'WC_Rache_Aqui' ) ) :
+if ( ! class_exists( 'WC_RacheAqui' ) ) :
 
 /**
  * WooCommerce Rache Aqui! main class.
  */
-class WC_Rache_Aqui {
+class WC_RacheAqui {
 
 	/**
 	 * Plugin version.
@@ -45,8 +45,8 @@ class WC_Rache_Aqui {
 
 		// Checks with WooCommerce is installed.
 		if ( class_exists( 'WC_Payment_Gateway' ) ) {
-			// Include the WC_Rache_Aqui_Gateway class.
-			include_once 'includes/class-wc-rache-aqui-gateway.php';
+			// Include the WC_RacheAqui_Gateway class.
+			include_once 'includes/class-wc-racheaqui-gateway.php';
 
 			add_filter( 'woocommerce_payment_gateways', array( $this, 'add_gateway' ) );
 		} else {
@@ -74,7 +74,7 @@ class WC_Rache_Aqui {
 	 * @return void
 	 */
 	public function load_plugin_textdomain() {
-		$domain = 'woocommerce-rache-aqui';
+		$domain = 'woocommerce-racheaqui';
 		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
 
 		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
@@ -89,7 +89,7 @@ class WC_Rache_Aqui {
 	 * @return  array          Payment methods with Rache Aqui!.
 	 */
 	public function add_gateway( $methods ) {
-		$methods[] = 'WC_Rache_Aqui_Gateway';
+		$methods[] = 'WC_RacheAqui_Gateway';
 
 		return $methods;
 	}
@@ -100,10 +100,10 @@ class WC_Rache_Aqui {
 	 * @return string
 	 */
 	public function woocommerce_missing_notice() {
-		echo '<div class="error"><p>' . sprintf( __( 'WooCommerce Rache Aqui! depends on the last version of %s to work!', 'woocommerce-rache-aqui' ), '<a href="http://wordpress.org/extend/plugins/woocommerce/">' . __( 'WooCommerce', 'woocommerce-rache-aqui' ) . '</a>' ) . '</p></div>';
+		echo '<div class="error"><p>' . sprintf( __( 'WooCommerce Rache Aqui! depends on the last version of %s to work!', 'woocommerce-racheaqui' ), '<a href="http://wordpress.org/extend/plugins/woocommerce/">' . __( 'WooCommerce', 'woocommerce-racheaqui' ) . '</a>' ) . '</p></div>';
 	}
 }
 
-add_action( 'plugins_loaded', array( 'WC_Rache_Aqui', 'get_instance' ), 0 );
+add_action( 'plugins_loaded', array( 'WC_RacheAqui', 'get_instance' ), 0 );
 
 endif;
