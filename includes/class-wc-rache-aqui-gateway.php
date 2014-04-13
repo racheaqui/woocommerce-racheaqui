@@ -206,6 +206,50 @@ class WC_Rache_Aqui_Gateway extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Generate the form.
+	 *
+	 * @param int     $order_id Order ID.
+	 *
+	 * @return string           Payment form.
+	 */
+	public function generate_form( $order_id ) {
+
+	}
+
+	/**
+	 * Process the payment and return the result.
+	 *
+	 * @param int    $order_id Order ID.
+	 *
+	 * @return array           Redirect.
+	 */
+	public function process_payment( $order_id ) {
+
+		$order = new WC_Order( $order_id );
+
+		if ( version_compare( WOOCOMMERCE_VERSION, '2.1', '>=' ) ) {
+			return array(
+				'result'   => 'success',
+				'redirect' => $order->get_checkout_payment_url( true )
+			);
+		} else {
+			return array(
+				'result'   => 'success',
+				'redirect' => add_query_arg( 'order', $order->id, add_query_arg( 'key', $order->order_key, get_permalink( woocommerce_get_page_id( 'pay' ) ) ) )
+			);
+		}
+	}
+
+	/**
+	 * Output for the order received page.
+	 *
+	 * @return void
+	 */
+	public function receipt_page( $order ) {
+		echo $this->generate_form( $order );
+	}
+
+	/**
 	 * Gets the admin url.
 	 *
 	 * @return string
