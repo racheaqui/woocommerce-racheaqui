@@ -5,7 +5,7 @@
  * Description: Integre o Rache Aqui! com o seu WooCommerce
  * Author: claudiosanches, Rache Aqui!
  * Author URI: http://claudiosmweb.com/
- * Version: 1.0.0
+ * Version: 2.0.0
  * License: GPLv2 or later
  * Text Domain: woocommerce-racheaqui
  * Domain Path: /languages/
@@ -27,7 +27,7 @@ class WC_RacheAqui {
 	 *
 	 * @var string
 	 */
-	const VERSION = '1.0.0';
+	const VERSION = '2.0.0';
 
 	/**
 	 * Instance of this class.
