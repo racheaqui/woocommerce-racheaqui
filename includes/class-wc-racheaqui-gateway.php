@@ -14,10 +14,11 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 	public function __construct() {
 		global $woocommerce;
 
-		$this->id             = 'racheaqui';
-		$this->icon           = apply_filters( 'woocommerce_racheaqui_icon', plugins_url( 'assets/images/racheaqui.png', plugin_dir_path( __FILE__ ) ) );
-		$this->has_fields     = false;
-		$this->method_title   = __( 'Rache Aqui!', 'woocommerce-racheaqui' );
+		$this->id                 = 'racheaqui';
+		$this->icon               = apply_filters( 'woocommerce_racheaqui_icon', plugins_url( 'assets/images/racheaqui.png', plugin_dir_path( __FILE__ ) ) );
+		$this->has_fields         = false;
+		$this->method_title       = __( 'Rache Aqui!', 'woocommerce-racheaqui' );
+		$this->method_description = __( 'Allow your customers pay with more of one credit card using the Rache Aqui!', 'woocommerce-racheaqui' );
 
 		// API URLs.
 		$this->production_url = 'https://pagamentos.racheaqui.com.br';
@@ -208,6 +209,46 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 	}
 
 	/**
+	 * Admin panel options.
+	 *
+	 * @return string Options form.
+	 */
+	public function admin_options() {
+		global $woocommerce;
+
+		echo '<h3>' . $this->method_title . '</h3>';
+		echo '<p>' . $this->method_description . '</p>';
+
+		echo '<table class="form-table">';
+			$this->generate_settings_html();
+		echo '</table>';
+
+		$js = '
+			function sandboxSwitch() {
+				var simulate_error = $( "#mainform .form-table:eq(1) tr:eq(1)" ),
+					sandbox = $( "#woocommerce_racheaqui_sandbox" );
+
+				if ( sandbox[0].checked ) {
+					simulate_error.show();
+				} else {
+					simulate_error.hide();
+				}
+			}
+			sandboxSwitch();
+
+			$( "#woocommerce_racheaqui_sandbox" ).on( "click", function () {
+				sandboxSwitch();
+			});
+		';
+
+		if ( function_exists( 'wc_enqueue_js' ) ) {
+			wc_enqueue_js( $js );
+		} else {
+			$woocommerce->add_inline_js( $js );
+		}
+	}
+
+	/**
 	 * Generate the args to form.
 	 *
 	 * @param  WC_Order $order Order data.
@@ -215,11 +256,18 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 	 * @return array           Form arguments.
 	 */
 	public function get_form_args( $order ) {
-		// $this->sandbox
-		// $this->force_error
+		$order_total = number_format( $order->order_total, 2, '', '' );
+		if ( 'yes' == $this->sandbox ) {
+			if ( 'yes' == $this->force_error ) {
+				$order_total = number_format( $order->order_total, 0, '', '' ) . '00';
+			} else {
+				$order_total = number_format( $order->order_total, 0, '', '' ) . '01';
+			}
+		}
+
 		$args = array(
 			'lojaID'          => $this->store_id,
-			'valor_pedido'    => number_format( $order->order_total, 2, '', '' ),
+			'valor_pedido'    => $order_total,
 			'pedidoID'        => $this->invoice_prefix . $order->id,
 			'num_raches'      => $this->split,
 			'maximo_parcelas' => $this->installments,
@@ -238,6 +286,8 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 	 * @return string           Payment form.
 	 */
 	public function generate_form( $order_id ) {
+		global $woocommerce;
+
 		$order      = new WC_Order( $order_id );
 		$args       = $this->get_form_args( $order );
 		$form_args  = array();
@@ -273,7 +323,7 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 				jQuery("#submit-payment-form").click();
 			' );
 		} else {
-			$this->woocommerce_instance()->add_inline_js( '
+			$woocommerce->add_inline_js( '
 				jQuery( "body" ).block({
 					message: "' . esc_js( __( 'Thank you for your order. We are now redirecting you to Rache Aqui! to make payment.', 'woocommerce-racheaqui' ) ) . '",
 					overlayCSS: {
