@@ -44,8 +44,7 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 		// Actions.
 		// add_action( 'woocommerce_api_wc_racheaqui_gateway', array( $this, 'check_ipn_response' ) );
 		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
-		// add_action( 'woocommerce_receipt_' .  $this->id, array( $this, 'receipt_page' ) );
-		add_action( 'woocommerce_receipt_racheaqui', array( $this, 'receipt_page' ) );
+		add_action( 'woocommerce_receipt_' .  $this->id, array( $this, 'receipt_page' ) );
 
 		// Active logs.
 		if ( 'yes' == $this->debug ) {
