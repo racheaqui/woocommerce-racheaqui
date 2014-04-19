@@ -117,7 +117,7 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 				'title'       => __( 'Description', 'woocommerce-racheaqui' ),
 				'type'        => 'textarea',
 				'description' => __( 'This controls the description which the user sees during checkout.', 'woocommerce-racheaqui' ),
-				'default'     => __( 'Pay two or more credit cards via Rache Aqui!', 'woocommerce-racheaqui' )
+				'default'     => __( 'Pay with multiple credit cards via Rache Aqui!', 'woocommerce-racheaqui' )
 			),
 			'store_id' => array(
 				'title'       => __( 'Rache Aqui! Store ID', 'woocommerce-racheaqui' ),
@@ -174,7 +174,7 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 			'invoice_prefix' => array(
 				'title'       => __( 'Invoice Prefix', 'woocommerce-racheaqui' ),
 				'type'        => 'text',
-				'description' => __( 'Please enter a prefix for your invoice numbers. If you use your Rache Aqui! account for multiple stores ensure this prefix is unqiue as Rache Aqui! will not allow orders with the same invoice number.', 'woocommerce-racheaqui' ),
+				'description' => __( 'Please enter a prefix for your invoice numbers. If you use your Rache Aqui! account for multiple stores ensure this prefix is unique as Rache Aqui! will not allow orders with the same invoice number.', 'woocommerce-racheaqui' ),
 				'desc_tip'    => true,
 				'default'     => 'WC-'
 			),

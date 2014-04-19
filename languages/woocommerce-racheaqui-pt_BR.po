@@ -1,0 +1,261 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WooCommerce Rache Aqui! v2.0.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2014-04-19 02:24:06+0000\n"
+"Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: CSL v1.x\n"
+"X-Poedit-Language: Portuguese\n"
+"X-Poedit-Country: BRAZIL\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e;__ngettext:1,2;_n:1,2;__ngettext_noop:1,2;_n_noop:1,2;_c,_nc:4c,1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;_nx_noop:4c,1,2;\n"
+"X-Poedit-Basepath: ../\n"
+"X-Poedit-Bookmarks: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Textdomain-Support: yes"
+
+#: includes/class-wc-racheaqui-gateway.php:20
+#: includes/class-wc-racheaqui-gateway.php:114
+#@ woocommerce-racheaqui
+msgid "Rache Aqui!"
+msgstr "Rache Aqui!"
+
+#. translators: plugin header field 'Description'
+#: includes/class-wc-racheaqui-gateway.php:21
+#: woocommerce-racheaqui.php:0
+#@ woocommerce-racheaqui
+msgid "Allow your customers pay with more of one credit card using the Rache Aqui!"
+msgstr "Permita os seus clientes a pagarem com mais de um cartão de crédito usando o Rache Aqui!"
+
+#: includes/class-wc-racheaqui-gateway.php:104
+#@ woocommerce-racheaqui
+msgid "Enable/Disable"
+msgstr "Ativar/Desativar"
+
+#: includes/class-wc-racheaqui-gateway.php:106
+#@ woocommerce-racheaqui
+msgid "Enable Rache Aqui!"
+msgstr "Ativar Rache Aqui!"
+
+#: includes/class-wc-racheaqui-gateway.php:110
+#@ woocommerce-racheaqui
+msgid "Title"
+msgstr "Título"
+
+#: includes/class-wc-racheaqui-gateway.php:112
+#@ woocommerce-racheaqui
+msgid "This controls the title which the user sees during checkout."
+msgstr "Isto controla o título que será exibido para os clientes durante a finalização"
+
+#: includes/class-wc-racheaqui-gateway.php:117
+#@ woocommerce-racheaqui
+msgid "Description"
+msgstr "Descrição"
+
+#: includes/class-wc-racheaqui-gateway.php:119
+#@ woocommerce-racheaqui
+msgid "This controls the description which the user sees during checkout."
+msgstr "Isto controla a descrição que será exibida para os clientes durante a finalização."
+
+#: includes/class-wc-racheaqui-gateway.php:123
+#@ woocommerce-racheaqui
+msgid "Rache Aqui! Store ID"
+msgstr "Loja ID do Rache Aqui!"
+
+#: includes/class-wc-racheaqui-gateway.php:125
+#@ woocommerce-racheaqui
+msgid "Please enter your Rache Aqui! Store ID."
+msgstr "Por favor, digite o seu ID de loja do Rache Aqui!"
+
+#: includes/class-wc-racheaqui-gateway.php:130
+#@ woocommerce-racheaqui
+msgid "Max Raches"
+msgstr "Máximo de raches"
+
+#: includes/class-wc-racheaqui-gateway.php:132
+#@ woocommerce-racheaqui
+msgid "Enter the maximum number of credit cards that the customers will can use. Must be less than or equal to the number registered in the Register of Retail, the opposite case is considered the number of the register."
+msgstr "Digite o número máximo de cartões de crédito que o cliente poderá utilizar, Precisa ser um número menor ou igual ao número registrado na sua conta do Rache Aqui!, caso o contrário será utilizado o número registrado."
+
+#: includes/class-wc-racheaqui-gateway.php:154
+#@ woocommerce-racheaqui
+msgid "Max Installments"
+msgstr "Máximo de parcelas"
+
+#: includes/class-wc-racheaqui-gateway.php:156
+#@ woocommerce-racheaqui
+msgid "Enter the maximum number of credit card installments. Must be less than or equal to the number registered in the Register of Retail, the opposite case is considered the number of the register."
+msgstr "Digite o número máximo de parcelas do cartão de crédito, Precisa ser um número menor ou igual ao número registrado na sua conta do Rache Aqui!, caso o contrário será utilizado o número registrado."
+
+#: includes/class-wc-racheaqui-gateway.php:175
+#@ woocommerce-racheaqui
+msgid "Invoice Prefix"
+msgstr "Prefixo do pedido"
+
+#: includes/class-wc-racheaqui-gateway.php:182
+#@ woocommerce-racheaqui
+msgid "Gateway Testing"
+msgstr "Teste de Gateway"
+
+#: includes/class-wc-racheaqui-gateway.php:187
+#@ woocommerce-racheaqui
+msgid "Rache Aqui! Sandbox"
+msgstr "Rache Aqui! Sandbox"
+
+#: includes/class-wc-racheaqui-gateway.php:189
+#@ woocommerce-racheaqui
+msgid "Enable Rache Aqui! sandbox"
+msgstr "Ativar o Rache Aqui! Sandbox"
+
+#: includes/class-wc-racheaqui-gateway.php:191
+#@ woocommerce-racheaqui
+msgid "Rache Aqui! sandbox can be used to test payments."
+msgstr "O Rache Aqui! sandbox pode ser utilizado para testar pagamentos."
+
+#: includes/class-wc-racheaqui-gateway.php:194
+#@ woocommerce-racheaqui
+msgid "Simulate Error"
+msgstr "Simular erro"
+
+#: includes/class-wc-racheaqui-gateway.php:196
+#@ woocommerce-racheaqui
+msgid "Simulate invalid transaction"
+msgstr "Simular transação inválida"
+
+#: includes/class-wc-racheaqui-gateway.php:198
+#@ woocommerce-racheaqui
+msgid "By default all requests are sent to the sandbox without cents to simulate purchase approved. Activating this option is sent along 1 cent to force an invalid transaction."
+msgstr "Por padrão, todas as requisições enviadas para o sandbox vão sem centavos para simular pedidos aprovados. Ativando esta opção será enviado 1 centavo para forçar uma transação inválida."
+
+#: includes/class-wc-racheaqui-gateway.php:201
+#@ woocommerce-racheaqui
+msgid "Debug Log"
+msgstr "Log de depuração"
+
+#: includes/class-wc-racheaqui-gateway.php:203
+#@ woocommerce-racheaqui
+msgid "Enable logging"
+msgstr "Habilitar log"
+
+#: includes/class-wc-racheaqui-gateway.php:205
+#, php-format
+#@ woocommerce-racheaqui
+msgid "Log Rache Aqui! events, such as payment requests and return data, inside %s"
+msgstr "Registrar eventos do Rache Aqui!, tais como requisições de pagamento e dados do retorno, dentro de %s"
+
+#: includes/class-wc-racheaqui-gateway.php:305
+#: includes/class-wc-racheaqui-gateway.php:327
+#@ woocommerce-racheaqui
+msgid "Thank you for your order. We are now redirecting you to Rache Aqui! to make payment."
+msgstr "Obrigado por fazer seu pedido. Agora estamos redirecionando você para o Rache Aqui! para efetuar o pagamento."
+
+#: includes/class-wc-racheaqui-gateway.php:355
+#@ woocommerce-racheaqui
+msgid "Pay via Rache Aqui!"
+msgstr "Pagar usando o Rache Aqui!"
+
+#: includes/class-wc-racheaqui-gateway.php:355
+#@ woocommerce-racheaqui
+msgid "Cancel order &amp; restore cart"
+msgstr "Cancelar pedido e restaurar carrinho"
+
+#: includes/class-wc-racheaqui-gateway.php:388
+#@ woocommerce-racheaqui
+msgid "Thank you for your order, please click the button below to pay with Rache Aqui!."
+msgstr "Obrigado por seu pedido, por favor clique no botão abaixo para pagar com Rache Aqui!."
+
+#: includes/class-wc-racheaqui-gateway.php:429
+#@ woocommerce-racheaqui
+msgid "Number of raches"
+msgstr "Número de raches"
+
+#: includes/class-wc-racheaqui-gateway.php:434
+#@ woocommerce-racheaqui
+msgid "Order completed, please check the payment status on the Rache Aqui! panel"
+msgstr "Pedido completo, por favor, verifique o status do pagamento no painel do Rache Aqui!"
+
+#: includes/class-wc-racheaqui-gateway.php:446
+#@ woocommerce-racheaqui
+msgid "Raque Aqui! Request Failure"
+msgstr "Raque Aqui! falha na requisição"
+
+#: includes/class-wc-racheaqui-gateway.php:468
+#: includes/class-wc-racheaqui-gateway.php:477
+#@ woocommerce-racheaqui
+msgid "Rache Aqui! Disabled"
+msgstr "Rache Aqui! desativado"
+
+#: includes/class-wc-racheaqui-gateway.php:468
+#, php-format
+#@ woocommerce-racheaqui
+msgid "You should inform your Store ID. %s"
+msgstr "Você deve informar o ID da loja. %s"
+
+#: includes/class-wc-racheaqui-gateway.php:468
+#@ woocommerce-racheaqui
+msgid "Click here to configure!"
+msgstr "Clique aqui para configurar!"
+
+#: includes/class-wc-racheaqui-gateway.php:477
+#, php-format
+#@ woocommerce-racheaqui
+msgid "Currency <code>%s</code> is not supported. The Rache Aqui! works only with <code>BRL</code>."
+msgstr "A moeda  <code>%s</code> não é suportada. O Rache Aqui! funciona apenas com <code>BRL</code>."
+
+#. translators: plugin header field 'Name'
+#: woocommerce-racheaqui.php:0
+#@ woocommerce-racheaqui
+msgid "WooCommerce Rache Aqui!"
+msgstr "WooCommerce Rache Aqui!"
+
+#. translators: plugin header field 'PluginURI'
+#: woocommerce-racheaqui.php:0
+#@ woocommerce-racheaqui
+msgid "https://www.racheaqui.com.br/"
+msgstr "https://www.racheaqui.com.br/"
+
+#. translators: plugin header field 'Author'
+#: woocommerce-racheaqui.php:0
+#@ woocommerce-racheaqui
+msgid "claudiosanches, Rache Aqui!"
+msgstr "claudiosanches, Rache Aqui!"
+
+#. translators: plugin header field 'AuthorURI'
+#: woocommerce-racheaqui.php:0
+#@ woocommerce-racheaqui
+msgid "http://claudiosmweb.com/"
+msgstr "http://claudiosmweb.com/"
+
+#. translators: plugin header field 'Version'
+#: woocommerce-racheaqui.php:0
+#@ woocommerce-racheaqui
+msgid "2.0.0"
+msgstr "2.0.0"
+
+#: woocommerce-racheaqui.php:103
+#, php-format
+#@ woocommerce-racheaqui
+msgid "WooCommerce Rache Aqui! depends on the last version of %s to work!"
+msgstr "WooCommerce Rache Aqui! depende da última versão do %s para funcionar!"
+
+#: woocommerce-racheaqui.php:103
+#@ woocommerce-racheaqui
+msgid "WooCommerce"
+msgstr "WooCommerce"
+
+#: includes/class-wc-racheaqui-gateway.php:120
+#@ woocommerce-racheaqui
+msgid "Pay with multiple credit cards via Rache Aqui!"
+msgstr "Paga com vários cartões de crédito ao mesmo tempo utilizando o Rache Aqui!"
+
+#: includes/class-wc-racheaqui-gateway.php:177
+#@ woocommerce-racheaqui
+msgid "Please enter a prefix for your invoice numbers. If you use your Rache Aqui! account for multiple stores ensure this prefix is unique as Rache Aqui! will not allow orders with the same invoice number."
+msgstr "Por favor informe um prefixo para utilizar com os números de pedidos. Caso você utilize sua conta do Rache Aqui! em mais de uma loja, procure utilizar um prefixo único para cada loja."
+
