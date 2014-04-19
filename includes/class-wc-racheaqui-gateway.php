@@ -42,9 +42,9 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 		$this->debug          = $this->get_option( 'debug' );
 
 		// Actions.
-		// add_action( 'woocommerce_api_wc_racheaqui_gateway', array( $this, 'check_ipn_response' ) );
 		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
 		add_action( 'woocommerce_receipt_' .  $this->id, array( $this, 'receipt_page' ) );
+		add_action( 'woocommerce_api_wc_racheaqui_gateway', array( $this, 'process_return' ) );
 
 		// Active logs.
 		if ( 'yes' == $this->debug ) {
@@ -387,6 +387,43 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 	public function receipt_page( $order ) {
 		echo '<p>' . __( 'Thank you for your order, please click the button below to pay with Rache Aqui!.', 'woocommerce-racheaqui' ) . '</p>';
 		echo $this->generate_form( $order );
+	}
+
+	/**
+	 * Process the Rache Aqui! return.
+	 *
+	 * @return void
+	 */
+	public function process_return() {
+		@ob_clean();
+
+		$posted = stripslashes_deep( $_POST );
+
+		if (
+			isset( $posted['pedidoID'] )
+			&& isset( $posted['status'] )
+			&& isset( $posted['valor_pedido'] )
+			&& isset( $posted['num_raches'] )
+			&& 'OK' == $posted['status']
+		) {
+			header( 'HTTP/1.1 200 OK' );
+
+			$order_id       = $posted['pedidoID'];
+			$order_id       = absint( str_replace( $this->invoice_prefix, '', $order_id ) );
+			$order          = new WC_Order( $order_id );
+			$total_received = number_format( str_replace( array( '.', ',' ), array( '', '.' ), $posted['valor_pedido'] ), 2, '', '' );
+			$order_total    = number_format( $order->order_total, 2, '', '' );
+
+			if ( $order->id === $order_id && $total_received === $order_total ) {
+				$order->add_order_note( __( 'Order completed, please check the payment status on the Rache Aqui! panel', 'woocommerce-racheaqui' ) );
+				$order->payment_complete();
+
+				wp_redirect( $this->get_return_url( $order ) );
+				exit;
+			}
+		}
+
+		wp_die( __( 'Raque Aqui! Request Failure', 'woocommerce-racheaqui' ), 'Raque Aqui! Return', array( 'response' => 200 ) );
 	}
 
 	/**
