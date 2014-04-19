@@ -127,7 +127,7 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 				'default'     => ''
 			),
 			'split' => array(
-				'title'       => __( 'Max Credit Cards', 'woocommerce-racheaqui' ),
+				'title'       => __( 'Max Raches', 'woocommerce-racheaqui' ),
 				'type'        => 'select',
 				'description' => __( 'Enter the maximum number of credit cards that the customers will can use. Must be less than or equal to the number registered in the Register of Retail, the opposite case is considered the number of the register.', 'woocommerce-racheaqui' ),
 				'desc_tip'    => true,
@@ -202,7 +202,7 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 				'type'        => 'checkbox',
 				'label'       => __( 'Enable logging', 'woocommerce-racheaqui' ),
 				'default'     => 'no',
-				'description' => sprintf( __( 'Log Rache Aqui! events, such as API requests, inside %s', 'woocommerce-racheaqui' ), '<code>woocommerce/logs/' . $this->id . '-' . sanitize_file_name( wp_hash( $this->id ) ) . '.txt</code>' ),
+				'description' => sprintf( __( 'Log Rache Aqui! events, such as payment requests and return data, inside %s', 'woocommerce-racheaqui' ), '<code>woocommerce/logs/' . $this->id . '-' . sanitize_file_name( wp_hash( $this->id ) ) . '.txt</code>' ),
 			)
 		);
 	}
@@ -408,6 +408,10 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 		) {
 			header( 'HTTP/1.1 200 OK' );
 
+			if ( 'yes' == $this->debug ) {
+				$this->log->add( $this->id, 'Processing a payment return with the follow data: ' . print_r( $posted, true ) );
+			}
+
 			$order_id       = $posted['pedidoID'];
 			$order_id       = absint( str_replace( $this->invoice_prefix, '', $order_id ) );
 			$order          = new WC_Order( $order_id );
@@ -415,11 +419,27 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 			$order_total    = number_format( $order->order_total, 2, '', '' );
 
 			if ( $order->id === $order_id && $total_received === $order_total ) {
+				if ( 'yes' == $this->debug ) {
+					$this->log->add( $this->id, 'The return is CORRECT for the order ' . $order->get_order_number() . ', payment status updated to processing' );
+				}
+
+				if ( ! empty( $posted['num_raches'] ) ) {
+					update_post_meta(
+						$order_id,
+						__( 'Number of raches', 'woocommerce-racheaqui' ),
+						$posted['num_raches']
+					);
+				}
+
 				$order->add_order_note( __( 'Order completed, please check the payment status on the Rache Aqui! panel', 'woocommerce-racheaqui' ) );
 				$order->payment_complete();
 
 				wp_redirect( $this->get_return_url( $order ) );
 				exit;
+			}
+
+			if ( 'yes' == $this->debug ) {
+				$this->log->add( $this->id, 'Failed to process the payment return wit the follow data:' . print_r( $posted, true ) );
 			}
 		}
 
