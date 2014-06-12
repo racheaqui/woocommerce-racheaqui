@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: WooCommerce Rache Aqui! v2.0.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2014-06-12 00:58:35+0000\n"
+"PO-Revision-Date: 2014-06-12 01:10:29+0000\n"
 "Last-Translator: Claudio Sanches <contato@claudiosmweb.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -65,7 +65,7 @@ msgstr "Isto controla a descrição que será exibida para os clientes durante a
 
 #: includes/class-wc-racheaqui-gateway.php:122
 #@ woocommerce-racheaqui
-msgid "Rache Aqui! Store ID"
+msgid "Store ID provided by Rache Aqui!"
 msgstr "Loja ID fornecido pelo Rache Aqui!"
 
 #: includes/class-wc-racheaqui-gateway.php:124
@@ -111,8 +111,8 @@ msgstr "Ativar o Rache Aqui! Sandbox"
 
 #: includes/class-wc-racheaqui-gateway.php:192
 #@ woocommerce-racheaqui
-msgid "Rache Aqui! sandbox can be used to test payments."
-msgstr "Marque essa opção somente quando for efetuar testes. Ao deixá-la desmarcada o ambiente utilizado será o de produção."
+msgid "Check this option when testing payments. Leave it unchecked to the environment will be used for production."
+msgstr "Marque esta opção somente quando for efetuar testes. Ao deixá-la desmarcada o ambiente utilizado será o de produção."
 
 #: includes/class-wc-racheaqui-gateway.php:195
 #@ woocommerce-racheaqui

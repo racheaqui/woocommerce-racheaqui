@@ -119,7 +119,7 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 				'default'     => __( 'Pay with multiple credit cards via Rache Aqui!', 'woocommerce-racheaqui' )
 			),
 			'store_id' => array(
-				'title'       => __( 'Rache Aqui! Store ID', 'woocommerce-racheaqui' ),
+				'title'       => __( 'Store ID provided by Rache Aqui!', 'woocommerce-racheaqui' ),
 				'type'        => 'text',
 				'description' => __( 'Please enter your Rache Aqui! Store ID.', 'woocommerce-racheaqui' ),
 				'desc_tip'    => true,
@@ -189,7 +189,7 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 				'type'        => 'checkbox',
 				'label'       => __( 'Enable Rache Aqui! sandbox', 'woocommerce-racheaqui' ),
 				'default'     => 'no',
-				'description' => __( 'Rache Aqui! sandbox can be used to test payments.', 'woocommerce-racheaqui' ),
+				'description' => __( 'Check this option when testing payments. Leave it unchecked to the environment will be used for production.', 'woocommerce-racheaqui' ),
 			),
 			'debug' => array(
 				'title'       => __( 'Debug Log', 'woocommerce-racheaqui' ),
