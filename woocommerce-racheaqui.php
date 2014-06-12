@@ -2,7 +2,7 @@
 /**
  * Plugin Name: WooCommerce Rache Aqui!
  * Plugin URI: https://www.racheaqui.com.br/
- * Description: Allow your customers pay with more of one credit card using the Rache Aqui!
+ * Description: Allow your customers to pay with more than a single credit card using the Rache Aqui!
  * Author: claudiosanches, Rache Aqui!
  * Author URI: http://claudiosmweb.com/
  * Version: 2.0.0
