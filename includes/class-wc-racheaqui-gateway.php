@@ -38,7 +38,6 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 		$this->installments   = $this->get_option( 'installments' );
 		$this->invoice_prefix = $this->get_option( 'invoice_prefix', 'WC-' );
 		$this->sandbox        = $this->get_option( 'sandbox' );
-		$this->force_error    = $this->get_option( 'force_error' );
 		$this->debug          = $this->get_option( 'debug' );
 
 		// Actions.
@@ -190,13 +189,6 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 				'default'     => 'no',
 				'description' => __( 'Rache Aqui! sandbox can be used to test payments.', 'woocommerce-racheaqui' ),
 			),
-			'force_error' => array(
-				'title'       => __( 'Simulate Error', 'woocommerce-racheaqui' ),
-				'type'        => 'checkbox',
-				'label'       => __( 'Simulate invalid transaction', 'woocommerce-racheaqui' ),
-				'default'     => 'no',
-				'description' => __( 'By default all requests are sent to the sandbox without cents to simulate purchase approved. Activating this option is sent along 1 cent to force an invalid transaction.', 'woocommerce-racheaqui' ),
-			),
 			'debug' => array(
 				'title'       => __( 'Debug Log', 'woocommerce-racheaqui' ),
 				'type'        => 'checkbox',
@@ -257,11 +249,7 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 	public function get_form_args( $order ) {
 		$order_total = number_format( $order->order_total, 2, '', '' );
 		if ( 'yes' == $this->sandbox ) {
-			if ( 'yes' == $this->force_error ) {
-				$order_total = number_format( $order->order_total, 0, '', '' ) . '00';
-			} else {
-				$order_total = number_format( $order->order_total, 0, '', '' ) . '01';
-			}
+			$order_total = number_format( $order->order_total, 0, '', '' ) . '00';
 		}
 
 		$args = array(
