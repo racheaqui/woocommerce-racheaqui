@@ -18,7 +18,7 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 		$this->icon               = apply_filters( 'woocommerce_racheaqui_icon', plugins_url( 'assets/images/racheaqui.png', plugin_dir_path( __FILE__ ) ) );
 		$this->has_fields         = false;
 		$this->method_title       = __( 'Rache Aqui!', 'woocommerce-racheaqui' );
-		$this->method_description = __( 'Allow your customers pay with more of one credit card using the Rache Aqui!', 'woocommerce-racheaqui' );
+		$this->method_description = __( 'Allow your customers to pay with more than a single credit card using the Rache Aqui!', 'woocommerce-racheaqui' );
 
 		// API URLs.
 		$this->production_url = 'https://pagamentos.racheaqui.com.br';
@@ -128,10 +128,11 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 			'split' => array(
 				'title'       => __( 'Max Raches', 'woocommerce-racheaqui' ),
 				'type'        => 'select',
-				'description' => __( 'Enter the maximum number of credit cards that the customers will can use. Must be less than or equal to the number registered in the Register of Retail, the opposite case is considered the number of the register.', 'woocommerce-racheaqui' ),
+				'description' => __( 'Must be less than or equal to the number registered in the Store Settings. If its value is zero OR is greater than the number registered, shall be deemed the number registered in the Store Settings.', 'woocommerce-racheaqui' ),
 				'desc_tip'    => true,
 				'default'     => '',
 				'options'     => array(
+					'0'  => '0',
 					'1'  => '1',
 					'2'  => '2',
 					'3'  => '3',
@@ -152,10 +153,11 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 			'installments' => array(
 				'title'       => __( 'Max Installments', 'woocommerce-racheaqui' ),
 				'type'        => 'select',
-				'description' => __( 'Enter the maximum number of credit card installments. Must be less than or equal to the number registered in the Register of Retail, the opposite case is considered the number of the register.', 'woocommerce-racheaqui' ),
+				'description' => __( 'Must be less than or equal to the number registered in the Store Settings. If its value is zero OR is greater than the number registered, shall be deemed the number registered in the Store Settings.', 'woocommerce-racheaqui' ),
 				'desc_tip'    => true,
 				'default'     => '',
 				'options'     => array(
+					'0'  => '0',
 					'1'  => '1',
 					'2'  => '2',
 					'3'  => '3',
