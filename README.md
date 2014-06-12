@@ -3,11 +3,11 @@
 **Tags:** woocommerce, checkout, payment, racheaqui  
 **Requires at least:** 3.8  
 **Tested up to:** 3.9  
-**Stable tag:** 2.0.0  
+**Stable tag:** 2.0.1  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
-Allow your customers pay with more of one credit card using the Rache Aqui!
+Allow your customers to pay with more than a single credit card using the Rache Aqui!
 
 ## Description ##
 
@@ -102,7 +102,7 @@ Este plugin esta licenciado como GPL.
 ### O que eu preciso para utilizar este plugin? ###
 
 * Ter instalado o plugin WooCommerce 2.0 ou superior.
-* Possuir uma conta no [Rache Aqui!](http://www.bcash.com.br/).
+* Possuir uma conta no [Rache Aqui!](https://www.racheaqui.com.br/cadastro.php).
 * Pegar o seu **lojaID** no Rache Aqui!.
 
 ### Como funciona o Rache Aqui!? ###
@@ -127,6 +127,12 @@ Este plugin esta licenciado como GPL.
 
 
 ## Changelog ##
+
+### 2.0.1 ###
+
+* Corrigida as descrições do plugin.
+* Melhorada as descrições das opções.
+* Removida a opção de "forçar erro".
 
 ### 2.0.0 ###
 
