@@ -74,11 +74,10 @@ class WC_RacheAqui {
 	 * @return void
 	 */
 	public function load_plugin_textdomain() {
-		$domain = 'woocommerce-racheaqui';
-		$locale = apply_filters( 'plugin_locale', get_locale(), $domain );
+		$locale = apply_filters( 'plugin_locale', get_locale(), 'woocommerce-racheaqui' );
 
-		load_textdomain( $domain, trailingslashit( WP_LANG_DIR ) . $domain . '/' . $domain . '-' . $locale . '.mo' );
-		load_plugin_textdomain( $domain, false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
+		load_textdomain( 'woocommerce-racheaqui', trailingslashit( WP_LANG_DIR ) . 'woocommerce-racheaqui/woocommerce-racheaqui-' . $locale . '.mo' );
+		load_plugin_textdomain( 'woocommerce-racheaqui', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
 	}
 
 	/**
