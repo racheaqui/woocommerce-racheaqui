@@ -42,7 +42,7 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 
 		// Actions.
 		add_action( 'woocommerce_update_options_payment_gateways_' . $this->id, array( $this, 'process_admin_options' ) );
-		add_action( 'woocommerce_receipt_' .  $this->id, array( $this, 'receipt_page' ) );
+		add_action( 'woocommerce_receipt_' . $this->id, array( $this, 'receipt_page' ) );
 		add_action( 'woocommerce_api_wc_racheaqui_gateway', array( $this, 'process_return' ) );
 
 		// Active logs.
@@ -85,9 +85,7 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 	 */
 	public function is_available() {
 		// Test if is valid for use.
-		$available = ( 'yes' == $this->get_option( 'enabled' ) )
-					&& ! empty( $this->store_id )
-					&& $this->using_supported_currency();
+		$available = parent::is_available() && 'yes' == $this->get_option( 'enabled' ) && ! empty( $this->store_id ) && $this->using_supported_currency();
 
 		return $available;
 	}
