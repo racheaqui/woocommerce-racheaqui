@@ -36,7 +36,6 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 		$this->store_id       = $this->get_option( 'store_id' );
 		$this->split          = $this->get_option( 'split' );
 		$this->installments   = $this->get_option( 'installments' );
-		$this->invoice_prefix = $this->get_option( 'invoice_prefix', 'WC-' );
 		$this->sandbox        = $this->get_option( 'sandbox' );
 		$this->debug          = $this->get_option( 'debug' );
 
@@ -170,13 +169,6 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 					'12' => '12',
 				)
 			),
-			'invoice_prefix' => array(
-				'title'       => __( 'Invoice Prefix', 'woocommerce-racheaqui' ),
-				'type'        => 'text',
-				'description' => __( 'Please enter a prefix for your invoice numbers. If you use your Rache Aqui! account for multiple stores ensure this prefix is unique as Rache Aqui! will not allow orders with the same invoice number.', 'woocommerce-racheaqui' ),
-				'desc_tip'    => true,
-				'default'     => 'WC-'
-			),
 			'testing' => array(
 				'title'       => __( 'Gateway Testing', 'woocommerce-racheaqui' ),
 				'type'        => 'title',
@@ -255,7 +247,7 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 		$args = array(
 			'lojaID'          => $this->store_id,
 			'valor_pedido'    => $order_total,
-			'pedidoID'        => $this->invoice_prefix . $order->id,
+			'pedidoID'        => $order->id,
 			'num_raches'      => $this->split,
 			'maximo_parcelas' => $this->installments,
 		);
@@ -400,8 +392,7 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 				$this->log->add( $this->id, 'Processing a payment return with the follow data: ' . print_r( $posted, true ) );
 			}
 
-			$order_id       = $posted['pedidoID'];
-			$order_id       = absint( str_replace( $this->invoice_prefix, '', $order_id ) );
+			$order_id       = absint( $posted['pedidoID'] );
 			$order          = new WC_Order( $order_id );
 			$total_received = number_format( str_replace( array( '.', ',' ), array( '', '.' ), $posted['valor_pedido'] ), 2, '', '' );
 			$order_total    = number_format( $order->order_total, 2, '', '' );
