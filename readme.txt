@@ -124,11 +124,12 @@ Este plugin esta licenciado como GPL.
 
 == Changelog ==
 
-= 2.0.1 =
+= 2.0.1 - 14/06/2014 =
 
 * Corrigida as descrições do plugin.
 * Melhorada as descrições das opções.
 * Removida a opção de "forçar erro".
+* Removida a opção de "prefixo do pedido".
 
 = 2.0.0 =
 
