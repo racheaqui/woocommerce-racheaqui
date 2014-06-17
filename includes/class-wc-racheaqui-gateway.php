@@ -192,46 +192,6 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 	}
 
 	/**
-	 * Admin panel options.
-	 *
-	 * @return string Options form.
-	 */
-	public function admin_options() {
-		global $woocommerce;
-
-		echo '<h3>' . $this->method_title . '</h3>';
-		echo '<p>' . $this->method_description . '</p>';
-
-		echo '<table class="form-table">';
-			$this->generate_settings_html();
-		echo '</table>';
-
-		$js = '
-			function sandboxSwitch() {
-				var simulate_error = $( "#mainform .form-table:eq(1) tr:eq(1)" ),
-					sandbox = $( "#woocommerce_racheaqui_sandbox" );
-
-				if ( sandbox[0].checked ) {
-					simulate_error.show();
-				} else {
-					simulate_error.hide();
-				}
-			}
-			sandboxSwitch();
-
-			$( "#woocommerce_racheaqui_sandbox" ).on( "click", function () {
-				sandboxSwitch();
-			});
-		';
-
-		if ( function_exists( 'wc_enqueue_js' ) ) {
-			wc_enqueue_js( $js );
-		} else {
-			$woocommerce->add_inline_js( $js );
-		}
-	}
-
-	/**
 	 * Generate the args to form.
 	 *
 	 * @param  WC_Order $order Order data.
@@ -239,14 +199,9 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 	 * @return array           Form arguments.
 	 */
 	public function get_form_args( $order ) {
-		$order_total = number_format( $order->order_total, 2, '', '' );
-		if ( 'yes' == $this->sandbox ) {
-			$order_total = number_format( $order->order_total, 0, '', '' ) . '00';
-		}
-
 		$args = array(
 			'lojaID'          => $this->store_id,
-			'valor_pedido'    => $order_total,
+			'valor_pedido'    => number_format( $order->order_total, 2, '', '' ),
 			'pedidoID'        => $order->id,
 			'num_raches'      => $this->split,
 			'maximo_parcelas' => $this->installments,
