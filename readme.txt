@@ -2,8 +2,8 @@
 Contributors: racheaqui, claudiosanches
 Tags: woocommerce, checkout, payment, racheaqui
 Requires at least: 3.8
-Tested up to: 3.9
-Stable tag: 2.0.1
+Tested up to: 3.9.1
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,7 +13,7 @@ Allow your customers to pay with more than a single credit card using the Rache 
 
 ### Description (en): ###
 
-Allow your customers pay with more of one credit card using the **[Rache Aqui!](https://www.racheaqui.com.br/)**
+Allow your customers to pay with more than a single credit card using the **[Rache Aqui!](https://www.racheaqui.com.br/)**
 
 ### Descrição (pt_BR): ###
 
@@ -124,6 +124,13 @@ Este plugin esta licenciado como GPL.
 
 == Changelog ==
 
+= 2.1.0 - 16/06/2014 =
+
+* Melhorado o modo de sandbox, agora não é mais forçado para arredondar o valor, sendo possível enviar pedidos com centavos para simular erros.
+* Removido scripts da opção "forçar erro" que foi removida da versão 2.0.1.
+* Adicionado novo logo no checkout.
+* Melhorada a descrição padrão no checkout.
+
 = 2.0.1 - 14/06/2014 =
 
 * Corrigida as descrições do plugin.
@@ -137,9 +144,12 @@ Este plugin esta licenciado como GPL.
 
 == Upgrade Notice ==
 
-= 2.0.0 =
+= 2.1.0 =
 
-* Primeira versão estável.
+* Melhorado o modo de sandbox, agora não é mais forçado para arredondar o valor, sendo possível enviar pedidos com centavos para simular erros.
+* Removido scripts da opção "forçar erro" que foi removida da versão 2.0.1.
+* Adicionado novo logo no checkout.
+* Melhorada a descrição padrão no checkout.
 
 == License ==
 
