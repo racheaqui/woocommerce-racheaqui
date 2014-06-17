@@ -5,7 +5,7 @@
  * Description: Allow your customers to pay with more than a single credit card using the Rache Aqui!
  * Author: claudiosanches, Rache Aqui!
  * Author URI: http://claudiosmweb.com/
- * Version: 2.0.1
+ * Version: 2.1.0
  * License: GPLv2 or later
  * Text Domain: woocommerce-racheaqui
  * Domain Path: /languages/
@@ -27,7 +27,7 @@ class WC_RacheAqui {
 	 *
 	 * @var string
 	 */
-	const VERSION = '2.0.1';
+	const VERSION = '2.1.0';
 
 	/**
 	 * Instance of this class.
