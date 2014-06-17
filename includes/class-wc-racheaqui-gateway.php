@@ -113,7 +113,7 @@ class WC_RacheAqui_Gateway extends WC_Payment_Gateway {
 				'title'       => __( 'Description', 'woocommerce-racheaqui' ),
 				'type'        => 'textarea',
 				'description' => __( 'This controls the description which the user sees during checkout.', 'woocommerce-racheaqui' ),
-				'default'     => __( 'Pay with multiple credit cards via Rache Aqui!', 'woocommerce-racheaqui' )
+				'default'     => __( 'Pay with Rache Aqui!', 'woocommerce-racheaqui' )
 			),
 			'store_id' => array(
 				'title'       => __( 'Store ID provided by Rache Aqui!', 'woocommerce-racheaqui' ),
