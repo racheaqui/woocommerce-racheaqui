@@ -2,7 +2,7 @@
 **Contributors:** racheaqui, claudiosanches  
 **Tags:** woocommerce, checkout, payment, racheaqui  
 **Requires at least:** 3.8  
-**Tested up to:** 3.9.1  
+**Tested up to:** 4.0  
 **Stable tag:** 2.1.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
@@ -120,10 +120,10 @@ Este plugin esta licenciado como GPL.
 ## Screenshots ##
 
 ### 1. Settings page. ###
-![1. Settings page.](http://s.wordpress.org/extend/plugins/woocommerce-rache-aqui!/screenshot-1.png)
+![1. Settings page.](http://ps.w.org/woocommerce-rache-aqui!/assets/screenshot-1.png)
 
 ### 2. Checkout page. ###
-![2. Checkout page.](http://s.wordpress.org/extend/plugins/woocommerce-rache-aqui!/screenshot-2.png)
+![2. Checkout page.](http://ps.w.org/woocommerce-rache-aqui!/assets/screenshot-2.png)
 
 
 ## Changelog ##
