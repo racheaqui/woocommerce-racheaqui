@@ -44,7 +44,7 @@ O pagamento com mais de um cartão de crédito, nas lojas virtuais, oferece aos 
 
 ### Compatibilidade ###
 
-Compatível com as versões 2.0.x e 2.1.x do WooCommerce.
+Compatível com as versões 2.0.x, 2.1.x e 2.2.x do WooCommerce.
 
 ### Coloborar ###
 
