@@ -2,7 +2,7 @@
 **Contributors:** racheaqui, claudiosanches  
 **Tags:** woocommerce, checkout, payment, racheaqui  
 **Requires at least:** 3.8  
-**Tested up to:** 4.0  
+**Tested up to:** 4.5  
 **Stable tag:** 2.1.0  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
@@ -44,9 +44,9 @@ O pagamento com mais de um cartão de crédito, nas lojas virtuais, oferece aos 
 
 ### Compatibilidade ###
 
-Compatível com as versões 2.0.x, 2.1.x e 2.2.x do WooCommerce.
+Compatível desde a versão 2.0.0 até 2.5.0 do WooCommerce.
 
-### Coloborar ###
+### Colaborar ###
 
 Você pode contribuir com código-fonte em nossa página no [GitHub](https://github.com/racheaqui/woocommerce-racheaqui).
 
@@ -154,13 +154,3 @@ Este plugin esta licenciado como GPL.
 * Removido scripts da opção "forçar erro" que foi removida da versão 2.0.1.
 * Adicionado novo logo no checkout.
 * Melhorada a descrição padrão no checkout.
-
-## License ##
-
-WooCommerce Rache Aqui! is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published
-by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
-
-WooCommerce Rache Aqui! is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License along with WooCommerce Rache Aqui!. If not, see <http://www.gnu.org/licenses/>.
